@@ -24,7 +24,10 @@ module PeDHCPd
           59 => RebindingTimeValueOption,
           60 => ClassIdentifierOption,
           61 => DHCPClientIdentifierOption,
-          82 => RelayAgentInformationOption
+          66 => ServerNameOption,
+          67 => BootfileNameOption,
+          82 => RelayAgentInformationOption,
+          150 => TFTPServerAddress,
     }
   
     def initialize

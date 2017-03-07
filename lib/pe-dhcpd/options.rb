@@ -272,6 +272,47 @@ module PeDHCPd
       str += @value.unpack("C*").join(",")
     end
   end
+
+  class ServerNameOption < BootOption
+    def build(value)
+      @key = 66
+      @len = value.size
+      @value = value
+    end
+
+    def to_s
+      str = "TFTP Server Name (" + @key.to_s + ") = " + @value
+    end
+  end
+
+  class BootfileNameOption < BootOption
+    def build(value)
+      @key = 67
+      @len = value.size
+      @value = value
+    end
+
+    def to_s
+      "Boot File Name = " + @value
+    end
+  end
+
+  class TFTPServerAddress < BootOption
+    def build(value)
+      @key = 150
+      @len = 4
+      if value.is_a?(Array)
+        @value = value.pack("CCCC")
+      elsif value.is_a?(String)
+        @value = value.split(".").map { |c| c.to_i }.pack("CCCC")
+      end
+    end
+
+    def to_s
+      str = "TFTP Server Address (" + @key.to_s + ") = "
+      str += @value.unpack("CCCC").join('.')
+    end
+  end
   
   class MessageTypeOption < BootOption
     DISCOVER=1
