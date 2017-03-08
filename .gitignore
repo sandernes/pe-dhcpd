@@ -2,3 +2,4 @@ pkg/
 *.pid
 .yardoc
 .bundle
+Gemfile.lock
