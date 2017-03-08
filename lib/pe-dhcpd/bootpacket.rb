@@ -30,7 +30,7 @@ module PeDHCPd
           150 => TFTPServerAddress,
     }
   
-    def initialize
+    def initialize(data=nil)
       @params = {
         :op => 0x0,
         :htype => 0x0,
@@ -46,9 +46,11 @@ module PeDHCPd
         :chaddr => 0x0
        }
        @options = []
+
+       set_from_data data if data
     end
   
-    def initialize(data)
+    def set_from_data(data)
       values = data.unpack('C4NnnN4a6x202Na*')
       @options = []
       @params = {
