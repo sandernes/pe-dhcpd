@@ -3,27 +3,15 @@
 # (c) Aki Tuomi 2011 - See license.
 
 require 'rubygems'
-require 'log4r'
-require 'log4r/outputter/syslogoutputter'
 require 'socket'
 require 'ipaddr'
 
 require 'pe-dhcpd/options'
 require 'pe-dhcpd/bootpacket'
 require 'pe-dhcpd/macfilter'
+require 'pe-dhcpd/vars'
 
 module PeDHCPd
-  class Vars
-    class << self
-      def log=(log)
-        @log = log
-      end
-
-      def log
-        @log
-      end
-    end
-  end
 
   class DhcpServer
     def initialize(ip)
@@ -140,8 +128,8 @@ module PeDHCPd
       @socket.bind(@ip, 67)
   
       # drop privs
-      Process::Sys.setresgid(99,99,99)
-      Process::Sys.setresuid(99,99,99)
+      #Process::Sys.setresgid(99,99,99)
+      #Process::Sys.setresuid(99,99,99)
   
       # generate MacFilter
       filter = MacFilterList.new

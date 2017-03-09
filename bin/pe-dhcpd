@@ -49,7 +49,7 @@ end
 ### END INIT INFO
 
 Daemons.run_proc('pe-dhcpd', { :dir_mode => :system }) do
-  log = Log4r::Logger.new 'dhcpd'
+  log = Log4r::Logger['dhcpd']
 
   begin
     log.outputters = Log4r::SyslogOutputter.new('dhcpd', :logopt => 0x1, :facility => 'LOG_DAEMON')
