@@ -28,7 +28,7 @@ module PeDHCPd
           66 => ServerNameOption,
           67 => BootfileNameOption,
           82 => RelayAgentInformationOption,
-          150 => TFTPServerAddress,
+          150 => TFTPServerAddressOption,
     }
   
     def initialize(data=nil)

@@ -297,7 +297,7 @@ module PeDHCPd
     end
   end
 
-  class TFTPServerAddress < BootOption
+  class TFTPServerAddressOption < BootOption
     def build(value)
       @key = 150
       @len = 4

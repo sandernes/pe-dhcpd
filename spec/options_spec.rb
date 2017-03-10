@@ -26,9 +26,9 @@ module PeDHCPd
     end
   end
 
-  RSpec.describe TFTPServerAddress, "build" do
+  RSpec.describe TFTPServerAddressOption, "build" do
     it "builds from string value" do
-      option = TFTPServerAddress.new
+      option = TFTPServerAddressOption.new
 
       option.build("192.168.0.1")
 
@@ -38,7 +38,7 @@ module PeDHCPd
     end
 
     it "builds from array value" do
-      option = TFTPServerAddress.new
+      option = TFTPServerAddressOption.new
 
       option.build([192, 168, 0, 1])
 
