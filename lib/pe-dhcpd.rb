@@ -128,8 +128,8 @@ module PeDHCPd
       @socket.bind(@ip, 67)
   
       # drop privs
-      #Process::Sys.setresgid(99,99,99)
-      #Process::Sys.setresuid(99,99,99)
+      Process::Sys.setresgid(UID,UID,UID)
+      Process::Sys.setresuid(GID,GID,GID)
   
       # generate MacFilter
       filter = MacFilterList.new

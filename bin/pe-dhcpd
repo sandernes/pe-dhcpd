@@ -11,6 +11,8 @@ if File.readable? config_file
   eval File.read(config_file)
 else
   ip = nil
+  UID = -1
+  GID = -1
   DNS_SERVERS = %w{ 127.0.0.1 }
   NTP_SERVERS = %w{ 127.0.0.1 }
   LEASE_TIME = 86400
